@@ -14,6 +14,7 @@ export class UserService {
 
   async getFullname(username: string, password: string): Promise<ServiceDto> {
 
+    // Check if user exists
     try {
       const user = await this.userModel.findOne({
         where: {
@@ -29,6 +30,7 @@ export class UserService {
         }
       }
 
+      // Check if password is valid
       const userPassword = user.dataValues.password
       const isPasswordValid = await bcrypt.compare(String(password), userPassword)
 
@@ -40,6 +42,7 @@ export class UserService {
         }
       }
 
+      // Return user's fullname
       return {
         data: {
           fullname: user.fullname

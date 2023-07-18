@@ -12,6 +12,13 @@ export class UserController {
     private readonly userService: UserService
   ) { }
 
+  /**
+ * Get fullname from username and password
+ * @param {string} username
+ * @param {string} password
+ * @returns {Promise<HTTPControllerDto>}
+ */
+
   @Get('/fullname')
   async getFullname(@Query('username') username: string, @Query('password') password: string, @Res() res: Response): Promise<Response<HTTPControllerDto>> {
     if (!username || !password) {
