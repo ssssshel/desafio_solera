@@ -12,6 +12,7 @@ DB_HOST=localhost
 DB_PORT=5432
 DB_USER=myuser
 DB_PASS=mypassword
+DB_NAME=mydb
 ```
 
 ## Estructura del Proyecto
